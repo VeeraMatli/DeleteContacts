@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "Contact": {
+      "title": "Contact",
+      "description": "A personal contact record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "number": { "type": "string" }
+            }
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "email": { "type": "string" }
+            }
+          }
+        },
+        "company": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "firstName"]
+    },
+    "Backup": {
+      "title": "Backup",
+      "description": "A backup of all contacts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "contactCount": { "type": "number" },
+        "size": { "type": "number" }
+      },
+      "required": ["id", "name", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/contacts": {
+      "schema": "Contact",
+      "description": "User's contacts collection"
+    },
+    "/users/{userId}/backups": {
+      "schema": "Backup",
+      "description": "User's contact backups"
+    }
+  }
+}

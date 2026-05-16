@@ -1,0 +1,6 @@
+{
+  "name": "CleanContacts AI",
+  "description": "iOS-style contact manager with smart AI filtering, cloud backups, and duplicate merging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
